@@ -52,6 +52,28 @@ pen.penup()
 pen.goto(0, 260)
 pen.write("Score", align="center", font=('merriweather', 24, 'normal'))
 
+# Fuctions to move the paddkes up and down
+def moveRightPaddleUp():
+    y = rightPaddle.ycor()
+    y = y+90
+    rightPaddle.sety(y)
+
+
+def moveRightPaddleUDown():
+    y = rightPaddle.ycor()
+    y = y - 90
+    rightPaddle.sety(y)
+
+def moveLeftPaddleUp():
+    y = rightPaddle.ycor()
+    y = y+90
+    rightPaddle.sety(y)
+
+
+def moveLeftPaddleUDown():
+    y = rightPaddle.ycor()
+    y = y - 90
+    rightPaddle.sety(y)
 
 lola.exitonclick()
 

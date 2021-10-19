@@ -39,8 +39,8 @@ ball.penup()
 ball.goto(5,5)
 
 # this will change the ball position on the screen
-ballXDirection = 0.5
-ballYDirection = 0.5
+ballXDirection = 0.9
+ballYDirection = 0.9
 
 # this is the pen to write the score
 pen = lola.Turtle()
@@ -108,9 +108,19 @@ while True:
         pen.clear()
         pen.write("Player A : {}          Player B : {}".format(playerAScore, playerBScore), align="center")
 
-    window.update()
-    ball.setx(ball.xcor() + ballXDirection)
-    ball.sety(ball.ycor() + ballYDirection)
+    if (ball.xcor() > 340) and (ball.xcor() < 350) and (
+            ball.ycor() < rightPaddle.ycor() + 40 and ball.ycor() > rightPaddle.ycor() - 40):
+        ball.setx(340)
+        ballXDirection *= -1
+
+    if (ball.xcor() < -340) and (ball.xcor() > -350) and (
+            ball.ycor() < leftPaddle.ycor() + 40 and ball.ycor() > leftPaddle.ycor() - 40):
+        ball.setx(-340)
+        ballXDirection *= -1
+
+window.update()
+ball.setx(ball.xcor() + ballXDirection)
+ball.sety(ball.ycor() + ballYDirection)
 
 
 

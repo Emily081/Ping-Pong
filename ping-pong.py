@@ -59,21 +59,30 @@ def moveRightPaddleUp():
     rightPaddle.sety(y)
 
 
-def moveRightPaddleUDown():
+def moveRightPaddleDown():
     y = rightPaddle.ycor()
     y = y - 90
     rightPaddle.sety(y)
 
 def moveLeftPaddleUp():
-    y = rightPaddle.ycor()
+    y = leftPaddle.ycor()
     y = y+90
-    rightPaddle.sety(y)
+    leftPaddle.sety(y)
 
 
 def moveLeftPaddleUDown():
-    y = rightPaddle.ycor()
+    y = leftPaddle.ycor()
     y = y - 90
-    rightPaddle.sety(y)
+    leftPaddle.sety(y)
+
+window.listen()
+
+window.onkey(moveLeftPaddleUp, 'w')
+window.onkey(moveLeftPaddleUDown, 's')
+window.onkey(moveRightPaddleUp, 'Up')
+window.onkey(moveRightPaddleDown, 'Down')
+
+
 
 lola.exitonclick()
 

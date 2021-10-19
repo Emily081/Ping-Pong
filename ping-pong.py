@@ -1,6 +1,5 @@
 import turtle as lola
 import turtle
-
 # for the score
 playerAScore = 0
 playerBScore = 0
@@ -40,8 +39,8 @@ ball.penup()
 ball.goto(5,5)
 
 # this will change the ball position on the screen
-ballXDirection = 0.4
-ballYDirection = 0.4
+ballXDirection = 0.5
+ballYDirection = 0.5
 
 # this is the pen to write the score
 pen = lola.Turtle()
@@ -81,6 +80,37 @@ window.onkey(moveLeftPaddleUp, 'w')
 window.onkey(moveLeftPaddleUDown, 's')
 window.onkey(moveRightPaddleUp, 'Up')
 window.onkey(moveRightPaddleDown, 'Down')
+
+# forever loop to move the ball
+
+while True:
+    window.update()
+    ball.setx(ball.xcor() + ballXDirection)
+    ball.sety(ball.ycor() + ballYDirection)
+
+    if ball.ycor() > 290:
+        ball.sety(290)
+        ballYDirection = ballYDirection*-1
+
+    if ball.xcor() > 390:
+        ball.goto(0,0)
+        ballXDirection*-1
+        playerAScore += 1
+        pen.clear()
+        pen.write("Player A : {}          Player B : {}".format(playerAScore, playerBScore), align="center")
+    if ball.ycor() < -290:
+        ball.sety(-290)
+        ballYDirection = ballYDirection * -1
+    if ball.xcor() < -390:
+        ball.goto(0, 0)
+        ballXDirection * -1
+        playerBScore += 1
+        pen.clear()
+        pen.write("Player A : {}          Player B : {}".format(playerAScore, playerBScore), align="center")
+
+    window.update()
+    ball.setx(ball.xcor() + ballXDirection)
+    ball.sety(ball.ycor() + ballYDirection)
 
 
 
